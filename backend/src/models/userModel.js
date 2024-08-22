@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const crypto = require("crypto");
+
 
 const userSchema = new mongoose.Schema(
   {
@@ -32,58 +32,33 @@ const userSchema = new mongoose.Schema(
       type: String,
       select: false,
     },
+
     confirmpassword: {
       type: String,
       select: false,
     },
-    role: {
+
+    profilePicture: {
       type: String,
-      default: "user",
-      trim: true,
+      default: "placeholderURI",
     },
 
-    shop: {
-      type: mongoose.Schema.ObjectId,
-      ref: "Shop",
-    },
-    avatar: {
+    coverPicture: {
       type: String,
+      default: "",
     },
 
-    favourites: [
-      {
-        shopid: {
-          type: mongoose.Schema.ObjectId,
-          ref: "Shop",
-          required: true,
-        },
-      },
-    ],
-    resetPasswordToken: String,
-    resetPasswordExpire: Date,
-    addresses: [
-      {
-        tag: {
-          type: String,
-          lowercase: true,
-          trim: true,
-        },
-        address: {
-          type: String,
-          trim: true,
-          lowercase: true,
-        },
-        location: {
-          type: {
-            type: String,
-            required: true,
-          },
-          coordinates: [],
-        },
-      },
-    ],
+    bio:{
+      type:String,
+      default:""
+    },
 
-    expoPushTokens: [String],
+    connections: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Connection",
+    }]
+
+
   },
   { timestamps: true }
 );
@@ -105,28 +80,6 @@ userSchema.methods.comparePassword = async function (password) {
   return checkPass;
 };
 
-userSchema.methods.generateResetPasswordToken = async function () {
-  const resetToken = await crypto.randomBytes(20).toString("hex");
-  const tokenCrypto = await crypto
-    .createHash("sha256")
-    .update(resetToken)
-    .digest("hex");
-  this.resetPasswordToken = tokenCrypto;
-  this.resetPasswordExpire = Date.now() + 15 * 60 * 1000;
-
-  await this.save({ validateBeforeSave: false });
-  return resetToken;
-};
-
-userSchema.methods.saveExpoPushToken = async function (expoPushToken) {
-  if (this.expoPushTokens.includes(expoPushToken)) {
-    return;
-  } else {
-    this.expoPushTokens.push(expoPushToken);
-  }
-  await this.save();
-};
-
 userSchema.pre("save", async function (next) {
   if (this.isModified("password")) {
     const salt = await bcrypt.genSalt();
@@ -135,5 +88,7 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
+
 const User = new mongoose.model("User", userSchema);
+
 module.exports = User;
