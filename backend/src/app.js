@@ -1,15 +1,16 @@
 
-
+const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const path = require("path");
-
+require('dotenv').config();
 const userRoute = require("./routes/v1/User");
 const connectionRoute = require("./routes/v1/Connection");
 
 require("./db/connection");
+mongoose.connect("mongodb://localhost:27017/ectask1");
 
 const port = process.env.PORT;
 

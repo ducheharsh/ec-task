@@ -1,4 +1,4 @@
-
+const mongoose = require("mongoose")
 const Connection = require("../models/connectionModel.js")
 const User = require("../models/userModel.js")
 
@@ -6,13 +6,12 @@ const createConnection = async(req, res) =>{
 
     const {user1Id, user2Id} = req.body
     try{
-        const connection = await Connection.create({user1, user2})
+        const connection = await Connection.create({user1:user1Id, user2:user2Id, status:"pending"})
         if(!connection){
             return res.status(400).json({message:"Connection not created",
             success:false
             })
         }
-
         const user1 = await User.findById(user1Id)
         if(!user1){
             return res.status(404).json({message:"User not found"})
