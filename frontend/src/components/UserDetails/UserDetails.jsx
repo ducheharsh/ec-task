@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const UserDetails = () => {
   return (
     <>
-      <div className="UserDetailsWrapper relative rounded-lg h-1/2 w-4/5 bg-gray-800 pb-5">
+      <div className="UserDetailsWrapper relative rounded-lg h-1/2 w-full bg-gray-800 pb-5">
         <div className="UserDetailsTop object-cover object-center h-auto w-auto rounded-md">
           <img
             className="h-fit w-fit object-cover object-center rounded-lg"
@@ -13,11 +13,11 @@ const UserDetails = () => {
             alt="img"
           ></img>
         </div>
-        <div className="UserDetailsProfile absolute left-10 top-20 h-40 w-40 p-2 rounded-full bg-gray-800">
+        <div className="UserDetailsProfile absolute left-10 top-20 h-40 w-40 p-2 rounded-full bg-gray-600">
             <img src="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png" alt="img">
             </img>
         </div>
-        <div className="UserDetailsMid flex justify-between items-start gap-4 mt-4 mb-1 h-full w-full p-2 pt-10">
+        <div className="UserDetailsMid flex justify-between items-start gap-4 mt-4 mb-1 h-full w-full px-6 py-2 pt-10">
           <div className="UserDetailsMidLeft flex-1 flex-col  w-2/3">
             <div className="UserDetailsMidLeftProfileName font-medium text-2xl">
               Adhar Battulwar
@@ -54,21 +54,21 @@ const UserDetails = () => {
             </div>
           </div>
         </div>
-        <div className="UserDetailsBottom w-4/5 flex-col p-2">
+        <div className="UserDetailsBottom w-4/5 flex-col px-6">
             <div className="UserDetailsBottomConnections mb-2 ">
                 500+ Connections
             </div>
             <div className="UserDetailsBottomSections flex gap-3 items-center justify-between">
-                <div className="UserDetailsBottomSection1 h-auto w-auto px-4 py-2 bg-gray-500 rounded-full cursor-pointer">
+                <div className="UserDetailsBottomSection1 h-auto w-auto px-4 py-1 border-blue-600 border-2 rounded-full cursor-pointer hover:scale-110 ">
                    Open To 
                 </div>
-                <div className="UserDetailsBottomSection2 h-auto w-auto px-4 py-2 bg-gray-500 rounded-full cursor-pointer">
+                <div className="UserDetailsBottomSection2 h-auto w-auto px-4 py-1 border-blue-600 border-2 rounded-full cursor-pointer hover:scale-110 ">
                     Add Profile Sections
                 </div>
-                <div className="UserDetailsBottomSection3 h-auto w-auto px-4 py-2 bg-gray-500 rounded-full cursor-pointer">
+                <div className="UserDetailsBottomSection3 h-auto w-auto px-4 py-1 border-blue-600 border-2 rounded-full cursor-pointer hover:scale-110 ">
                     Enhance Profile
                 </div>
-                <div className="UserDetailsBottomSection4 h-auto w-auto px-4 py-2 bg-gray-500 rounded-full cursor-pointer">
+                <div className="UserDetailsBottomSection4 h-auto w-auto px-4 py-1 border-blue-600 border-2 rounded-full cursor-pointer hover:scale-110 ">
                     More
                 </div>
             </div>
