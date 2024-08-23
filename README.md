@@ -21,7 +21,7 @@ To get started with the project, follow these steps:
     cd ec-task
     ```
 
-2. **Install dependencies:**
+2. **Install dependencies for each backend and frontend applications:**
 
     ```bash
     npm install
@@ -36,6 +36,11 @@ To get started with the project, follow these steps:
     ```bash
     npm start
     ```
+    OR
+   
+   ```bash
+   npm run dev
+   ```
 
 ## Usage
 
