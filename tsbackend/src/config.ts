@@ -1,3 +1,3 @@
-const JWT_SECRET = "myscrectkey"
+const JWT_SECRET = "myscrectkey";
 
-export { JWT_SECRET }
+export { JWT_SECRET };
