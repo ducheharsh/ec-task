@@ -22,7 +22,7 @@ const app = new Hono<{ Variables: Variables }>().basePath("/api/v1");
 app.use(logger());
 app.use(csrf({ origin: "*" }));
 app.use(
-  "/api/*",
+  "/*",
   cors({
     origin: "*",
     allowMethods: ["GET", "POST", "PUT", "DELETE"],
