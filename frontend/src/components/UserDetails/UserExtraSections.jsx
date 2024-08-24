@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const UserExtraSections = (props) => {
   return (
     <>
-      <div className="UserExtraSectionsWrapper absolute h-auto w-full bg-gray-800 my-4 rounded-md">
+      <div className="UserExtraSectionsWrapper relative h-auto w-full bg-gray-800 my-4 rounded-md">
         <div className="UserExtraSectionsHead w-full flex items-center justify-between px-6">
           <div className="UserExtraSectionsHeadLeft w-1/2 text-2xl font-normal">
             {props.name}
