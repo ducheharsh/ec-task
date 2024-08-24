@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import "../../stylesheet/UserDetails.css"
+import "../../stylesheet/UserDetails.css"
+import { MdOutlineModeEdit } from "react-icons/md";
 
 const UserDetails = () => {
   return (
     <>
-      <div className="UserDetailsWrapper relative rounded-lg h-1/2 w-full bg-gray-800 pb-5">
+      <div className="UserDetailsWrapper relative rounded-lg h-auto w-full bg-gray-800 pb-5">
         <div className="UserDetailsTop object-cover object-center h-auto w-auto rounded-md">
           <img
             className="h-fit w-fit object-cover object-center rounded-lg"
@@ -13,7 +14,7 @@ const UserDetails = () => {
             alt="img"
           ></img>
         </div>
-        <div className="UserDetailsProfile absolute left-10 top-20 h-40 w-40 p-2 rounded-full bg-gray-600">
+        <div className="UserDetailsProfile absolute left-10 top-20 h-auto w-1/5 p-2 rounded-full bg-gray-600">
             <img src="https://upload.wikimedia.org/wikipedia/en/8/86/Avatar_Aang.png" alt="img">
             </img>
         </div>
@@ -39,7 +40,12 @@ const UserDetails = () => {
               <Link to="/" className="text-blue-600">MyPortfolio</Link>
             </div>
           </div>
-          <div className="UserDetailsMidRight w-1/3">
+          <div className="UserDetailsMidRight flex-row  h-auto w-1/3">
+            <div className="UserDetailsMidRightEdit absolute h-auto w-auto right-10 top-44">
+            <Link to="/edit">
+              <MdOutlineModeEdit className="h-10"/>
+            </Link>
+            </div>
             <div className="UserDetailsMidRightEdit"></div>
             <div className="UserDetailsMidRightInstitue flex gap-3">
               <div className="UserDetailsMidRightInstitueLogo">
@@ -54,21 +60,21 @@ const UserDetails = () => {
             </div>
           </div>
         </div>
-        <div className="UserDetailsBottom w-4/5 flex-col px-6">
-            <div className="UserDetailsBottomConnections mb-2 ">
+        <div className="UserDetailsBottom h-1/2 w-auto flex-col px-6">
+            <div className="UserDetailsBottomConnections relative h-1/2 mb-2 ">
                 500+ Connections
             </div>
-            <div className="UserDetailsBottomSections flex gap-3 items-center justify-between">
-                <div className="UserDetailsBottomSection1 h-auto w-auto px-4 py-1 border-blue-600 border-2 rounded-full cursor-pointer hover:scale-110 ">
+            <div className="UserDetailsBottomSections flex gap-3 items-center justify-start flex-wrap">
+                <div className="UserDetailsBottomSection1 h-10 w-auto px-4 py-1 border-blue-600 border-2 rounded-full cursor-pointer hover:scale-110 ">
                    Open To 
                 </div>
-                <div className="UserDetailsBottomSection2 h-auto w-auto px-4 py-1 border-blue-600 border-2 rounded-full cursor-pointer hover:scale-110 ">
+                <div className="UserDetailsBottomSection2 h-10 w-auto px-4 py-1 border-blue-600 border-2 rounded-full cursor-pointer hover:scale-110 ">
                     Add Profile Sections
                 </div>
-                <div className="UserDetailsBottomSection3 h-auto w-auto px-4 py-1 border-blue-600 border-2 rounded-full cursor-pointer hover:scale-110 ">
+                <div className="UserDetailsBottomSection3 h-10 w-auto px-4 py-1 border-blue-600 border-2 rounded-full cursor-pointer hover:scale-110 ">
                     Enhance Profile
                 </div>
-                <div className="UserDetailsBottomSection4 h-auto w-auto px-4 py-1 border-blue-600 border-2 rounded-full cursor-pointer hover:scale-110 ">
+                <div className="UserDetailsBottomSection4 h-10 w-auto px-4 py-1 border-blue-600 border-2 rounded-full cursor-pointer hover:scale-110 ">
                     More
                 </div>
             </div>
