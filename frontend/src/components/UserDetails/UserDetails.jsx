@@ -2,8 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../stylesheet/UserDetails.css"
 import { MdOutlineModeEdit } from "react-icons/md";
+import { useSelector } from "react-redux";
 
 const UserDetails = () => {
+  const {loading, user, error} = useSelector(state=> state.user)
+  console.log(user)
+
   return (
     <>
       <div className="UserDetailsWrapper relative rounded-lg h-auto w-full bg-gray-800 pb-5">
@@ -21,7 +25,8 @@ const UserDetails = () => {
         <div className="UserDetailsMid flex justify-between items-start gap-4 mt-4 mb-1 h-full w-full px-6 py-2 pt-10">
           <div className="UserDetailsMidLeft flex-1 flex-col  w-2/3">
             <div className="UserDetailsMidLeftProfileName font-medium text-2xl">
-              Adhar Battulwar
+              {user.username}
+
             </div>
             <div className="UserDetailsMidLeftHeadLines text-base">
               Frontend Developer | MERN Stack Developer | Expert React.js

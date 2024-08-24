@@ -90,11 +90,37 @@ const userSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(loadUser.fulfilled, (state, action) => {
-      state.loading = false;
+      console.log(action.payload);
       state.user = action.payload.user;
       state.token = action.payload.token;
     });
     builder.addCase(loadUser.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error;
+      console.log(action.error);
+    });
+    builder.addCase(signIn.pending, (state, action) => {
+      state.loading = true;
+    });
+    builder.addCase(signIn.fulfilled, (state, action) => {
+      console.log(action.payload);
+      state.user = action.payload.user;
+      state.token = action.payload.token;
+    });
+    builder.addCase(signIn.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.error;
+      console.log(action.error);
+    });
+
+    builder.addCase(logIn.pending, (state, action) => {
+      state.loading = true;
+    });
+    builder.addCase(logIn.fulfilled, (state, action) => {
+      state.user = action.payload.user;
+      state.token = action.payload.token;
+    });
+    builder.addCase(logIn.rejected, (state, action) => {
       state.loading = false;
       state.error = action.error;
       console.log(action.error);
